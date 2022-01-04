@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('task/index', 'TaskController@index');
+Route::post('task/index', 'TaskController@create');
