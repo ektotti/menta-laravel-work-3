@@ -20,7 +20,10 @@
         <tr><th>ID</th><th>コメント</th><th>状態</th></tr>
         @isset($tasks)
         @foreach($tasks as $task)
-        <tr><td>{{$loop->index}}</td><td>{{$task->comment}}</td><td><button>作業中</button></td><td><button>削除</button></td></tr>
+        @php
+        $status = $task->status===1? '作業中' : '完了';
+        @endphp
+        <tr><td>{{$loop->index}}</td><td>{{$task->comment}}</td><td><button>{{$status}}</button></td><td><button>削除</button></td></tr>
         @endforeach
         @endisset
     </table>
