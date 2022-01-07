@@ -21,7 +21,7 @@
         @isset($tasks)
         @foreach($tasks as $task)
         @php
-        $status = $task->status===1? '作業中' : '完了';
+        $status = $task->status === 1 ? '作業中' : '完了';
         @endphp
         <tr><td>{{$loop->index}}</td><td>{{$task->comment}}</td><td><button>{{$status}}</button></td><td><button>削除</button></td></tr>
         @endforeach
