@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title>TodoApp</title>
 </head>
 <body>
@@ -26,11 +27,15 @@
         <tr>
             <td>{{$loop->index}}</td>
             <td>{{$task->comment}}</td>
-            <td><button>{{$status}}</button></td>
+            <form action="/tasks/{{$task->id}}" method="POST">
+                @csrf
+                @method('patch')
+                <td><input class="submit" type="submit" name="status" value="{{$status}}"></td>
+            </form>
             <form action="/tasks/{{$task->id}}" method="POST">
                 @csrf
                 @method('delete')
-                <td><input type="submit" value="削除"></td>
+                <td><input class="submit" type="submit" value="削除"></td>
             </form>
         </tr>
         @endforeach
@@ -41,8 +46,9 @@
         <form action="" method="post">
             @csrf
             <input type="text" name="comment" id="comment">
-            <input type="submit" value="追加">
+            <input class="submit" type="submit" value="追加">
         </form>
     </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

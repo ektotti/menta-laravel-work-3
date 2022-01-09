@@ -1,1 +1,8 @@
-//
+.submit{
+    background-color: white;
+
+    &.clicked{
+        background-color: blue;
+        color:white;
+    }
+}
