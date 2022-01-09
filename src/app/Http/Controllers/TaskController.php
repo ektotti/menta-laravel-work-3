@@ -86,6 +86,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        task::find($id)->delete();
+        return redirect('tasks');
     }
 }

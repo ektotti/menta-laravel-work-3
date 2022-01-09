@@ -23,7 +23,16 @@
         @php
         $status = $task->status === 1 ? '作業中' : '完了';
         @endphp
-        <tr><td>{{$loop->index}}</td><td>{{$task->comment}}</td><td><button>{{$status}}</button></td><td><button>削除</button></td></tr>
+        <tr>
+            <td>{{$loop->index}}</td>
+            <td>{{$task->comment}}</td>
+            <td><button>{{$status}}</button></td>
+            <form action="/tasks/{{$task->id}}" method="POST">
+                @csrf
+                @method('delete')
+                <td><input type="submit" value="削除"></td>
+            </form>
+        </tr>
         @endforeach
         @endisset
     </table>
