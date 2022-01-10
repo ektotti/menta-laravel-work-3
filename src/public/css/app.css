@@ -7,3 +7,7 @@
   color: white;
 }
 
+.undisplayed {
+  display: none;
+}
+
