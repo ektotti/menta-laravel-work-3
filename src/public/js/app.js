@@ -19390,22 +19390,22 @@ inputs.forEach(function (input) {
 }); // タスクの状態によって表示/非表示を切り替える処理
 // この処理で使用するオブジェクト(index.blade.php内)を変数へ代入
 
-var status_options = document.querySelectorAll('.status_option'); // タスクの状態を選ぶラジオボタン
+var statusOptions = document.querySelectorAll('.status_option'); // タスクの状態を選ぶラジオボタン
 
-var exist_tasks = document.querySelectorAll('.task'); // index.blade.php内でループで回している登録したtask
+var existTasks = document.querySelectorAll('.task'); // index.blade.php内でループで回している登録したtask
 // ラジオボタンから選んだstatusと各taskのstatusを比べて、styleの編集。
 // ラジオボタンのクリックイベントで発火。
 
-status_options.forEach(function (status_option) {
-  status_option.addEventListener('click', function (e) {
-    var selected_status = e.target.getAttribute('value');
-    exist_tasks.forEach(function (exist_task) {
-      task_status = exist_task.querySelector('.task_status').getAttribute('id');
+statusOptions.forEach(function (statusOption) {
+  statusOption.addEventListener('click', function (e) {
+    var selectedStatus = e.target.getAttribute('value');
+    existTasks.forEach(function (existTask) {
+      task_status = existTask.querySelector('.task_status').getAttribute('id');
 
-      if (selected_status === task_status | selected_status === 'all') {
-        exist_task.classList.remove('undisplayed');
+      if (selectedStatus === task_status | selectedStatus === 'all') {
+        existTask.classList.remove('undisplayed');
       } else {
-        exist_task.classList.add('undisplayed');
+        existTask.classList.add('undisplayed');
       }
     });
   });
