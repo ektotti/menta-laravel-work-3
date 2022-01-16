@@ -75,7 +75,12 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = task::find($id);
+        $status = $request->status === '作業中' ? task::$status['complete'] : task::$status['work'];
+        $task->status = $status;
+        $task->save();
+
+        return redirect('tasks');
     }
 
     /**

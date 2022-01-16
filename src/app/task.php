@@ -12,4 +12,9 @@ class task extends Model
         'created_at',
         'updated_at',
     ];
+
+    static $status = [
+        'complete' => 0,
+        'work' => 1,
+    ];
 }

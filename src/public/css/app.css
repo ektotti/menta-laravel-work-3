@@ -1,0 +1,13 @@
+.submit {
+  background-color: white;
+}
+
+.submit.clicked {
+  background-color: blue;
+  color: white;
+}
+
+.undisplayed {
+  display: none;
+}
+
